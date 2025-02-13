@@ -8,10 +8,10 @@ Vagrant.configure("2") do |config|
       v.force_vmware_license = "workstation"
     end
     config.vm.provision "ansible_local" do |ansible|
-        ansible.playbook = "main.yml"
+        ansible.playbook = "ansible/main.yml"
         ansible.install_mode = "pip"
         ansible.pip_install_cmd = "sudo apt install python3-pip -y"
-        ansible.galaxy_role_file = 'requirements.yml'
+        ansible.galaxy_role_file = 'ansible/requirements.yml'
         ansible.pip_args = "--upgrade --break-system-packages"
     end
 end
